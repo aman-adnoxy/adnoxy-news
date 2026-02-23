@@ -1,12 +1,16 @@
-const headlines = [
-    "DOOH advertising spend projected to grow 12% in 2025",
-    "Adnoxy launches AI-powered billboard targeting platform",
-    "Transit media ROI hits all-time high across metro cities",
-    "New programmatic OOH standards released by industry consortium",
-    "Location intelligence reshapes out-of-home campaign planning",
-];
+export default function Navbar({ posts = [], onNavigateHome }) {
+    // If we have posts, use their titles for the ticker. 
+    // Otherwise fallback to an empty array so nothing breaks.
+    const breakingHeadlines = posts && posts.length > 0
+        ? posts.slice(0, 5).map(p => p.title)
+        : [
+            "DOOH advertising spend projected to grow 12% in 2025",
+            "Adnoxy launches AI-powered billboard targeting platform",
+            "Transit media ROI hits all-time high across metro cities",
+            "New programmatic OOH standards released by industry consortium",
+            "Location intelligence reshapes out-of-home campaign planning",
+        ];
 
-export default function Navbar() {
     return (
         <>
             {/* Breaking news ticker */}
@@ -17,7 +21,7 @@ export default function Navbar() {
                     </span>
                     <div className="overflow-hidden flex-1 py-1.5">
                         <div className="ticker-scroll flex items-center gap-10 whitespace-nowrap">
-                            {[...headlines, ...headlines].map((h, i) => (
+                            {[...breakingHeadlines, ...breakingHeadlines].map((h, i) => (
                                 <span key={i} className="text-[12px] font-medium text-white/80">
                                     •&nbsp;&nbsp;{h}
                                 </span>
@@ -32,13 +36,17 @@ export default function Navbar() {
                 <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo */}
-                        <a href="/" className="flex items-center gap-2.5 group">
-                            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center rotate-45 group-hover:rotate-[405deg] transition-transform duration-500">
-                                <svg className="-rotate-45" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2L2 12L12 22L22 12L12 2Z" fill="#BEF264" />
-                                    <path d="M12 7L7 12L12 17L17 12L12 7Z" fill="#1E293B" />
-                                </svg>
-                            </div>
+                        <a
+                            href="/"
+                            className="flex items-center gap-2.5 group"
+                            onClick={(e) => {
+                                if (onNavigateHome) {
+                                    e.preventDefault();
+                                    onNavigateHome();
+                                }
+                            }}
+                        >
+                            <img src="/adnoxy-blogs.png" alt="Adnoxy logo" className="h-9 w-auto object-contain" />
                             <span className="font-serif font-bold text-xl text-primary tracking-tight">
                                 Adnoxy News
                             </span>

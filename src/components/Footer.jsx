@@ -6,12 +6,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="md:col-span-1">
                         <a href="/" className="flex items-center gap-2.5 mb-4">
-                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center rotate-45">
-                                <svg className="-rotate-45" width="14" height="14" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2L2 12L12 22L22 12L12 2Z" fill="#BEF264" />
-                                    <path d="M12 7L7 12L12 17L17 12L12 7Z" fill="#1E293B" />
-                                </svg>
-                            </div>
+                            <img src="/adnoxy-blogs.png" alt="Adnoxy logo" className="h-8 w-auto object-contain" />
                             <span className="font-serif font-bold text-lg">Adnoxy News</span>
                         </a>
                         <p className="text-sm text-white/50 leading-relaxed">

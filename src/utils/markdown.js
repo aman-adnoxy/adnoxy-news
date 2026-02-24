@@ -58,6 +58,7 @@ function processMetadata(metadata, slug, excerpt) {
                 ? metadata.tags.replace(/[\[\]'"]/g, "").split(",").map((t) => t.trim())
                 : [],
             coverImage: metadata.coverImage || metadata.image || null,
+            image_reference: metadata.image_reference || null,
         };
     } catch (error) {
         console.error("Error processing metadata for:", slug, error);
@@ -76,6 +77,7 @@ function processMetadata(metadata, slug, excerpt) {
             category: "Error",
             tags: [],
             coverImage: null,
+            image_reference: null,
         };
     }
 }

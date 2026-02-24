@@ -50,9 +50,11 @@ export default function NewsDetailPage({ post, onNavigateHome }) {
                                 className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
                             />
                         ) : (
-                            <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-primary font-bold">
-                                <User size={18} />
-                            </div>
+                            <img
+                                src="/adnoxy-blogs.png"
+                                alt={post.author || "Adnoxy"}
+                                className="w-10 h-10 rounded-full object-contain bg-white border-2 border-white shadow-sm"
+                            />
                         )}
                         <div>
                             <div className="text-primary font-bold">{post.author || "Adnoxy Editorial"}</div>
@@ -80,8 +82,14 @@ export default function NewsDetailPage({ post, onNavigateHome }) {
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out"
                         />
+                        {post.image_reference && (
+                            <div className="absolute bottom-4 right-4 z-10 bg-black/50 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-lg opacity-80 hover:opacity-100 transition-opacity border border-white/10 shadow-lg">
+                                Image Ref: {post.image_reference}
+                            </div>
+                        )}
                     </div>
                 </div>
+
             )}
 
             {/* Main Content Area */}

@@ -47,14 +47,9 @@ export default function TopStory({ posts = [], onNavigateToPost }) {
                                 {topStory.authorImage ? (
                                     <img src={topStory.authorImage} alt={topStory.author} className="w-6 h-6 rounded-full object-cover border border-white/20" />
                                 ) : (
-                                    <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2L2 12L12 22L22 12L12 2Z" fill="#BEF264" />
-                                            <path d="M12 7L7 12L12 17L17 12L12 7Z" fill="white" />
-                                        </svg>
-                                    </div>
+                                    <img src="/adnoxy-blogs.png" alt="Adnoxy" className="w-6 h-6 rounded-full object-cover bg-white" />
                                 )}
-                                <span className="text-white/80 text-xs font-medium">{topStory.author || "Adnoxy"}</span>
+                                <span className="text-white/80 text-xs font-medium">{topStory.author || "Adnoxy News"}</span>
                             </div>
                         </div>
                     </div>

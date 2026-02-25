@@ -1,16 +1,79 @@
-# React + Vite
+# Adnoxy News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Adnoxy News is a dynamic React-based news web application built using Vite, styled with Tailwind CSS, and powered by Supabase for headless content management. It renders rich Markdown articles fetched directly from a secure Supabase storage bucket, complete with a beautifully formatted typography system.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Getting Started
 
-## React Compiler
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+*   [Node.js](https://nodejs.org/) (v16.0 or higher recommended)
+*   npm (comes bundled with Node.js) or yarn
+*   A [Supabase](https://supabase.com/) project with configured storage buckets
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🛠️ Installation
+
+1.  **Clone the repository and jump into the directory:**
+    ```bash
+    git clone https://github.com/aman-adnoxy/adnoxy-news.git
+    cd adnoxy-news
+    ```
+
+2.  **Install the project dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+---
+
+## 🔐 Environment Configuration
+
+This application securely fetches data from your Supabase endpoint. You **must** provide your API credentials for the app to function correctly.
+
+1.  Create a file named `.env` in the root directory of the project (`adnoxy-news/.env`).
+2.  Add the following environment variables, ensuring to replace the placeholder values with your actual Supabase project credentials:
+
+```ini
+# .env
+
+# Your specific Supabase Project URL
+VITE_SUPABASE_URL="https://your-project-id.supabase.co"
+
+# Your public anonymous Supabase API Key
+VITE_SUPABASE_ANON_KEY="your-anon-key-string"
+```
+
+> **Note:** The `.env` file is included in `.gitignore` to prevent sensitive keys from being committed to the repository.
+
+---
+
+## 🏃 Running the Application
+
+Once your dependencies are installed and your `.env` file is configured:
+
+1.  **Start the development server:**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+2.  **View the App:**
+    Open your browser and navigate to the local URL provided in your terminal (usually `http://localhost:5173`). 
+
+---
+
+## 📦 Project Structure & Key Technologies
+
+*   **Vite:** Blazing fast build tool and development server.
+*   **React:** UI library for building the application components.
+*   **Tailwind CSS:** Utility-first CSS framework (including `@tailwindcss/typography` for beautiful Markdown rendering).
+*   **Supabase Storage:** Headless backend acting as the content repository.
+    *   `news-markdown`: The bucket storing `.md` files containing news articles.
+    *   `news-bucket-images`: The bucket holding image assets for articles.
+*   **Marked & DOMPurify:** Used synergistically to parse Markdown files into secure, sanitised HTML.
